@@ -1,3 +1,8 @@
+:root {
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  --animation-duration: 250ms;
+}
+
 html {
   box-sizing: border-box;
 }
@@ -9,12 +14,107 @@ html {
 }
 
 body {
+  min-height: 100vh;
+  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  background-color: #fff;
+  color: #212121;
+  text-align: center;
+  background: linear-gradient(110deg, #f93d66, #6d47d9);
+}
+h1 {
+  color: #212121;
+  display: inline-block;
+  padding: 20px;
+  margin-top: 90px;
+  margin-bottom: 0;
+}
+.search-form {
+  padding: 30px;
+}
+.search-form > input {
+  background: linear-gradient(110deg, #f93d66, #6d47d9);
+  border: 2px solid #212121;
+}
+.load-btn {
+  background: linear-gradient(110deg, #f93d66, #6d47d9);
+  border: 2px solid #212121;
+  color: gray;
+  margin-bottom: 40px;
+  width: 100px;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  max-width: calc(100vw - 120px);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+}
 
-  /*
-   * CSS image reference example.
-   */
-  background-image: url('./images/bg-pattern.png');
+.gallery__item {
+  height: 300px;
+  overflow: hidden;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+.stats {
+  display:flex;
+  justify-content: space-around;
+  text-align: center;
+}
+.stats i {
+  display: block;
+}
+.photo-card img {
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.is-hidden {
+  display: none;
+}
+.loader {
+  border: 10px solid  #6d47d9;
+  border-top: 10px solid #f93d66;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.back_to_top {
+    background: #f93d66;
+    border: 2px solid #212121;
+    bottom: 30px;
+    cursor: pointer;
+    display: none;
+    height: 25px;
+    opacity: 0.5;
+    position: fixed;
+    right: 60px;
+    width: 25px;
+    z-index: 9999;
+}
+.back_to_top:hover {
+    opacity: 1;
+    transition: opacity cubic-bezier(0.4, 0, 0.2, 1) 250ms;
+    }
+.back_to_top-show {
+    display: block;
+}
+.btn-up {
+    margin: auto;
+    transform: rotate(-90deg);
 }
