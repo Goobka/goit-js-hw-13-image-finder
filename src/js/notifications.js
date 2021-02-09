@@ -1,5 +1,5 @@
 import {
-error, alert
+error,
 defaultModules,
 } from '@pnotify/core/dist/PNotify.js';
 import '@pnotify/core/dist/PNotify.css';
@@ -12,4 +12,4 @@ defaults.styling = 'material';
 import 'material-design-icons/iconfont/material-icons.css';
 defaults.icons = 'material';
 
-export default {error, alert};
+export default error;

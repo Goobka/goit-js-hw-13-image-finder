@@ -19,7 +19,7 @@ export default {
     get query() {
         return this.searchQuery;
     },
-    set query(value) {
-        this.searchQuery = value;
+    set query(newQuery) {
+        this.searchQuery = newQuery;
     },
 };
