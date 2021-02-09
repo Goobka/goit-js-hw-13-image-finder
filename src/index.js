@@ -36,11 +36,11 @@ function onFormSubmit(event) {
 function fetchGalleryList() {
   // loadMoreBtn.disable();
     imgService.fetchImages().then(hits => {
-      if (imgService.query === '') {
+      if (imgService.query === '' || hits.length === 0) {
         error({
           title: 'Not valid request',
           text: 'Specify your request',
-          delay: 2000,
+          delay: 1000,
         });
       }
         updateGalleryListMarkup(hits);
@@ -64,16 +64,7 @@ function clearGalleryList() {
 const onEntry = entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting && imgService.query !== '') {
-      imgService.fetchImages().then(hits => {
-      if (imgService.query === '') {
-        error({
-          title: 'Not valid request',
-          text: 'Specify your request',
-          delay: 2000,
-        });
-      }
-        updateGalleryListMarkup(hits);
-    })
+      fetchGalleryList();
     }
   });
 };
