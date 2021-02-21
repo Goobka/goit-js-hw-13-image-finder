@@ -28,7 +28,9 @@ function onFormSubmit(event) {
   imgService.query = form.elements.query.value;
   // loadMoreBtn.show();
   imgService.resetPage();
-  fetchGalleryList();
+  if (imgService.query) {
+    fetchGalleryList();
+  };
   clearGalleryList();
   form.reset();
 }
